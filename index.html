@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Portfolio | Sachin Kumar</title>
+  <meta name="description" content="Academic portfolio of a university Computer Science student — about, COA notes, number system converter and assignments." />
+
+  <!-- Free Google Fonts: Fraunces (headings) + Inter (body) + JetBrains Mono (numbers/code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Apply saved theme before paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("portfolio-theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+    })();
+  </script>
+</head>
+<body>
+  <!-- ================= LOADING SCREEN ================= -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
+    <p class="loader__text">Loading portfolio…</p>
+  </div>
+
+  <a href="#home" class="skip-link">Skip to main content</a>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="nav__brand">
+        <span class="nav__logo" aria-hidden="true" data-student="initials">SK</span>
+        <span class="nav__name" data-student="name">Sachin Kumar</span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#coa" class="nav__link">COA Rules</a></li>
+        <li><a href="#converter" class="nav__link">Converter</a></li>
+        <li><a href="#assignments" class="nav__link">Assignments</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HOME / HERO ================= -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Academic Portfolio · 2026</p>
+          <h1 class="hero__title">Hi, I'm <span class="highlight" data-student="name">Sachin Kumar</span></h1>
+          <!-- EDIT: Your short welcome message -->
+          <p class="hero__text">
+            Welcome to my academic portfolio. Here you'll find my coursework, notes on
+            Computer Organization &amp; Architecture, a handy number system converter,
+            and the assignments I've completed this semester.
+          </p>
+
+          <div class="hero__buttons">
+            <a href="#about" class="btn btn--primary">Explore My Portfolio
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#converter" class="btn btn--ghost">Try the Converter</a>
+          </div>
+        </div>
+
+        <div class="hero__profile reveal">
+          <div class="profile-card">
+            <div class="profile-card__photo">
+              <!-- EDIT: replace images/profile.svg with your own photo (e.g. images/profile.jpg) -->
+              <img src="images/profile.svg" alt="Profile photo of the student" width="160" height="160" />
+            </div>
+            <h2 class="profile-card__name" data-student="name">Sachin Kumar</h2>
+            <p class="profile-card__role" data-student="course">B.E. Computer Science &amp; Engineering(AI)</p>
+
+            <dl class="info-grid">
+              <div class="info-item">
+                <dt>UID</dt>
+                <dd data-student="uid">25BAI10040</dd>
+              </div>
+              <div class="info-item">
+                <dt>Semester</dt>
+                <dd data-student="semester">3rd Semester</dd>
+              </div>
+              <div class="info-item info-item--wide">
+                <dt>Course</dt>
+                <dd data-student="course">B.E. Computer Science &amp; Engineering(AI)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ME ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="eyebrow">Get to know me</p>
+          <h2 class="section__title">About Me</h2>
+          <p class="section__subtitle">A little about who I am, what I study and where I'm heading.</p>
+        </header>
+
+        <div class="about-grid">
+          <!-- EDIT: Introduction -->
+          <article class="card about-card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+            <h3>Introduction</h3>
+            <p>
+              I'm an undergraduate Computer Science student who enjoys understanding how
+              things work from the ground up — from logic gates and registers to the
+              software that runs on top of them. I like learning by building small projects
+              and explaining concepts to classmates.
+            </p>
+          </article>
+
+          <!-- EDIT: Academic Interest -->
+          <article class="card about-card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+            </div>
+            <h3>Academic Interest</h3>
+            <p>My main academic interests include:</p>
+            <ul class="tick-list">
+              <li>Computer Organization &amp; Architecture</li>
+              <li>Data Structures &amp; Algorithms</li>
+              <li>Operating Systems</li>
+              <li>Web Development</li>
+            </ul>
+          </article>
+
+          <!-- EDIT: Future Goals -->
+          <article class="card about-card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+            </div>
+            <h3>Future Goals</h3>
+            <p>
+              I aim to become a skilled software engineer with a strong foundation in
+              systems. In the coming years I want to complete internships, contribute to
+              open-source projects and pursue research in computer architecture.
+            </p>
+          </article>
+
+          <!-- CV: replace CV.pdf in the project folder with your own file -->
+          <article class="card about-card about-card--cv reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            </div>
+            <h3>Curriculum Vitae</h3>
+            <p>View my CV in the browser or download a copy for your records.</p>
+            <div class="cv-buttons">
+              <a href="CV.pdf" target="_blank" rel="noopener" class="btn btn--primary btn--sm">View CV</a>
+              <a href="CV.pdf" download="CV.pdf" class="btn btn--outline btn--sm">Download CV</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COA LEARNING RULES ================= -->
+    <section class="section section--alt" id="coa">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="eyebrow">Computer Organization &amp; Architecture</p>
+          <h2 class="section__title">COA Learning Rules</h2>
+          <p class="section__subtitle">My study notes, organised by topic. Click any topic to expand it.</p>
+        </header>
+
+        <div class="coa-toolbar reveal">
+          <button class="btn btn--outline btn--sm" type="button" id="expandAll">Expand all</button>
+          <button class="btn btn--outline btn--sm" type="button" id="collapseAll">Collapse all</button>
+        </div>
+
+        <!-- EDIT: Each <details> block is one topic. Change the text inside freely. -->
+        <div class="coa-grid">
+          <details class="coa-item reveal" open>
+            <summary>
+              <span class="coa-item__num">01</span>
+              <span class="coa-item__title">Learning Rules</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <ol>
+                <li>Revise the previous lecture before attending the next one.</li>
+                <li>Draw block diagrams — COA is easier to understand visually.</li>
+                <li>Practise number conversions daily until they become automatic.</li>
+                <li>Solve at least five numericals per topic (memory, pipelining, etc.).</li>
+                <li>Connect every concept to a real component inside a computer.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="coa-item reveal">
+            <summary>
+              <span class="coa-item__num">02</span>
+              <span class="coa-item__title">Number Systems</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <p>A number system defines how values are written using a set of digits and a <strong>base (radix)</strong>.</p>
+              <table class="mini-table">
+                <thead><tr><th>System</th><th>Base</th><th>Digits</th></tr></thead>
+                <tbody>
+                  <tr><td>Binary</td><td>2</td><td>0, 1</td></tr>
+                  <tr><td>Octal</td><td>8</td><td>0–7</td></tr>
+                  <tr><td>Decimal</td><td>10</td><td>0–9</td></tr>
+                  <tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td></tr>
+                </tbody>
+              </table>
+              <p>One octal digit = 3 bits; one hex digit = 4 bits.</p>
+            </div>
+          </details>
+
+          <details class="coa-item reveal">
+            <summary>
+              <span class="coa-item__num">03</span>
+              <span class="coa-item__title">Data Representation</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <ul>
+                <li><strong>Unsigned integers</strong> use all bits for magnitude.</li>
+                <li><strong>Signed magnitude</strong> uses the MSB as the sign bit.</li>
+                <li><strong>1's complement</strong>: invert every bit.</li>
+                <li><strong>2's complement</strong>: 1's complement + 1 — used by most CPUs.</li>
+                <li><strong>Floating point (IEEE 754)</strong>: sign, exponent and mantissa.</li>
+                <li><strong>Characters</strong> are stored using codes such as ASCII and Unicode.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="coa-item reveal">
+            <summary>
+              <span class="coa-item__num">04</span>
+              <span class="coa-item__title">Computer Organization</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <p><strong>Organization</strong> describes how hardware components are connected and operate, while <strong>architecture</strong> describes the attributes visible to the programmer (instruction set, addressing modes, data types).</p>
+              <ul>
+                <li>Von Neumann model: CPU, memory, I/O and a shared bus.</li>
+                <li>System bus = address bus + data bus + control bus.</li>
+                <li>Instruction cycle: Fetch → Decode → Execute → Store.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="coa-item reveal">
+            <summary>
+              <span class="coa-item__num">05</span>
+              <span class="coa-item__title">CPU</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <ul>
+                <li><strong>ALU</strong> performs arithmetic and logic operations.</li>
+                <li><strong>Control Unit</strong> generates control signals (hardwired or microprogrammed).</li>
+                <li><strong>Registers</strong>: PC, IR, MAR, MDR, Accumulator, general-purpose registers.</li>
+                <li><strong>Pipelining</strong> overlaps instruction stages to increase throughput.</li>
+                <li>Performance: CPU time = Instruction count × CPI × Clock cycle time.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="coa-item reveal">
+            <summary>
+              <span class="coa-item__num">06</span>
+              <span class="coa-item__title">Memory</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <p>Memory hierarchy (fastest → slowest):</p>
+              <p class="hierarchy"><span>Registers</span><span>Cache</span><span>Main memory (RAM)</span><span>Secondary storage</span></p>
+              <ul>
+                <li>Cache mapping: direct, associative and set-associative.</li>
+                <li>Locality of reference: temporal and spatial.</li>
+                <li>Virtual memory uses paging to extend main memory.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="coa-item coa-item--note reveal">
+            <summary>
+              <span class="coa-item__num">07</span>
+              <span class="coa-item__title">Important Notes</span>
+              <span class="coa-item__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="coa-item__body">
+              <ul>
+                <li>1 Byte = 8 bits; 1 KB = 1024 Bytes.</li>
+                <li>Range of n-bit 2's complement: −2<sup>n−1</sup> to 2<sup>n−1</sup> − 1.</li>
+                <li>Hit ratio = Hits ÷ (Hits + Misses).</li>
+                <li>Always write units in numericals (ns, MHz, KB).</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NUMBER SYSTEM CONVERTER ================= -->
+    <section class="section" id="converter">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="eyebrow">Interactive tool</p>
+          <h2 class="section__title">Number System Converter</h2>
+          <p class="section__subtitle">Convert between Binary, Decimal, Octal and Hexadecimal — with validation and history.</p>
+        </header>
+
+        <div class="converter-layout">
+          <form class="card converter reveal" id="converterForm" novalidate>
+            <div class="converter__row">
+              <!-- FROM -->
+              <div class="converter__field">
+                <label for="inputSystem" class="field-label">From</label>
+                <select id="inputSystem" class="select">
+                  <option value="2">Binary (base 2)</option>
+                  <option value="10" selected>Decimal (base 10)</option>
+                  <option value="8">Octal (base 8)</option>
+                  <option value="16">Hexadecimal (base 16)</option>
+                </select>
+
+                <label for="inputNumber" class="field-label">Enter number</label>
+                <div class="input-wrap">
+                  <input type="text" id="inputNumber" class="input input--mono" autocomplete="off" spellcheck="false"
+                         placeholder="e.g. 255" aria-describedby="inputHint converterError" />
+                  <span class="base-badge" id="inputBadge">DEC</span>
+                </div>
+                <p class="hint" id="inputHint">Decimal: digits 0–9 (a decimal point is allowed).</p>
+              </div>
+
+              <button class="swap-btn" type="button" id="swapBtn" aria-label="Swap input and output number systems" title="Swap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg>
+              </button>
+
+              <!-- TO -->
+              <div class="converter__field">
+                <label for="outputSystem" class="field-label">To</label>
+                <select id="outputSystem" class="select">
+                  <option value="2" selected>Binary (base 2)</option>
+                  <option value="10">Decimal (base 10)</option>
+                  <option value="8">Octal (base 8)</option>
+                  <option value="16">Hexadecimal (base 16)</option>
+                </select>
+
+                <label for="outputNumber" class="field-label">Result</label>
+                <div class="input-wrap">
+                  <input type="text" id="outputNumber" class="input input--mono input--result" readonly placeholder="Result appears here" />
+                  <span class="base-badge base-badge--out" id="outputBadge">BIN</span>
+                </div>
+                <p class="hint" id="outputHint">Result shown in Binary.</p>
+              </div>
+            </div>
+
+            <p class="message" id="converterError" role="alert" aria-live="polite"></p>
+
+            <div class="converter__actions">
+              <button type="submit" class="btn btn--primary">Convert</button>
+              <button type="button" class="btn btn--outline" id="copyBtn">Copy result</button>
+              <button type="button" class="btn btn--ghost" id="clearBtn">Clear</button>
+            </div>
+          </form>
+
+          <aside class="card history reveal" aria-labelledby="historyTitle">
+            <div class="history__header">
+              <h3 id="historyTitle">Conversion History</h3>
+              <button type="button" class="btn btn--ghost btn--sm" id="clearHistoryBtn">Clear history</button>
+            </div>
+            <ul class="history__list" id="historyList"></ul>
+            <p class="empty-state" id="historyEmpty">No conversions yet. Your last 8 conversions will appear here.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ASSIGNMENTS ================= -->
+    <section class="section section--alt" id="assignments">
+      <div class="container">
+        <header class="section__header reveal">
+          <p class="eyebrow">Coursework</p>
+          <h2 class="section__title">Assignments</h2>
+          <p class="section__subtitle">Add assignments to keep them organised in one place.</p>
+        </header>
+
+        <div class="notice reveal" role="note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>
+          <p><strong>Demo storage:</strong> files are saved only in <em>this browser</em> on <em>this device</em>
+            (localStorage + IndexedDB). They are <strong>not</strong> uploaded to an online server and visitors cannot see them.</p>
+        </div>
+
+        <div class="assign-layout">
+          <form class="card assign-form reveal" id="assignmentForm" novalidate>
+            <h3>Add an assignment</h3>
+
+            <label for="assignName" class="field-label">Assignment name</label>
+            <input type="text" id="assignName" class="input" placeholder="e.g. Assignment 1 – Number Systems" maxlength="100" required />
+
+            <label for="assignSubject" class="field-label">Subject</label>
+            <input type="text" id="assignSubject" class="input" placeholder="e.g. Computer Organization" maxlength="80" required />
+
+            <p class="field-label" id="fileFieldLabel">File</p>
+            <label class="dropzone" id="dropzone">
+              <input type="file" id="assignFile" class="visually-hidden" required aria-labelledby="fileFieldLabel fileLabel"
+                     accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.zip,.png,.jpg,.jpeg" />
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+              <span id="fileLabel">Choose a file or drag it here</span>
+              <small>PDF, DOC, DOCX, PPT, ZIP, images · max 10 MB</small>
+            </label>
+
+            <p class="message" id="assignMessage" role="status" aria-live="polite"></p>
+
+            <button type="submit" class="btn btn--primary btn--block" id="uploadBtn">Upload</button>
+          </form>
+
+          <div class="assign-list-wrap reveal">
+            <div class="assign-list__header">
+              <h3>My assignments <span class="count-pill" id="assignCount">0</span></h3>
+            </div>
+            <ul class="assign-list" id="assignmentList"></ul>
+            <p class="empty-state" id="assignEmpty">No assignments yet. Add your first one using the form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__about">
+        <a href="#home" class="nav__brand">
+          <span class="nav__logo" aria-hidden="true" data-student="initials">SK</span>
+          <span class="nav__name" data-student="name">Sachin Kumar</span>
+        </a>
+        <p data-student="course">B.E. Computer Science &amp; Engineering(AI)</p>
+        <p>UID: <span data-student="uid">25BAI10040</span></p>
+      </div>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <h3>Quick links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#coa">COA Learning Rules</a></li>
+          <li><a href="#converter">Number Converter</a></li>
+          <li><a href="#assignments">Assignments</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="CV.pdf" target="_blank" rel="noopener">View CV</a></li>
+          <li><a href="CV.pdf" download="CV.pdf">Download CV</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 <span data-student="name">Sachin Kumar</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
